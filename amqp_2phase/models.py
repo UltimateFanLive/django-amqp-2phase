@@ -19,7 +19,7 @@ class AMQPEvent(models.Model):
     data = models.TextField(null=False, blank=True)
 
     def __str__(self):
-        return self.id
+        return str(self.id)
 
     def save(self, *args, **kwargs):
         if not self.event_type:
