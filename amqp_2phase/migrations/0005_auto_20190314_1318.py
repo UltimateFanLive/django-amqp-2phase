@@ -22,10 +22,6 @@ class Migration(migrations.Migration):
         ),
         migrations.RemoveField(
             model_name='amqpevent',
-            name='event_type',
-        ),
-        migrations.RemoveField(
-            model_name='amqpevent',
             name='send_date',
         ),
         migrations.RemoveField(
