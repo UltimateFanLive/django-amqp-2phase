@@ -10,6 +10,7 @@ class Migration(migrations.Migration):
         ('amqp_2phase', '0004_create_trigger'),
     ]
 
+    atomic = False
     operations = [
         migrations.RemoveField(
             model_name='amqpevent',
