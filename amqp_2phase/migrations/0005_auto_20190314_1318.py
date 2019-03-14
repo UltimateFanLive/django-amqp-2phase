@@ -12,6 +12,10 @@ class Migration(migrations.Migration):
 
     atomic = False
     operations = [
+        migrations.RunSQL(
+            """drop index concurrently idx_amqp_events_pending;""",
+            reverse_sql="""create index concurrently idx_amqp_events_pending on amqp_events(id) where status = 1;""",
+        ),
         migrations.RemoveField(
             model_name='amqpevent',
             name='create_date',
@@ -28,8 +32,5 @@ class Migration(migrations.Migration):
             model_name='amqpevent',
             name='status',
         ),
-        migrations.RunSQL(
-            """drop index concurrently idx_amqp_events_pending;""",
-            reverse_sql="""create index concurrently idx_amqp_events_pending on amqp_events(id) where status = 1;""",
-        ),
+
     ]
